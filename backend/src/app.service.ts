@@ -20,7 +20,18 @@ export class AppService {
   }
 
   async setUser(user: User) {
-    let newUser = new this.userModel(user);
+    let newUser = await this.userModel.findOne({ username: user.username });
+
+    if(newUser == null){
+        newUser = new this.userModel(user);
+    }
+    else{
+        newUser.username = user.username;
+        newUser.name = user.name;
+        newUser.email = user.email;
+        newUser.number = user.number;
+        newUser.dob = user.dob;
+    }
 
     try {
       await newUser.save();
