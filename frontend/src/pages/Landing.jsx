@@ -33,7 +33,7 @@ const Landing = () => {
                 </div>
                 <Input
                     type='text'
-                    placeholder='Enter your name'
+                    placeholder='Enter your username'
                     class='md:w-96'
                     value={username}
                     onChange={(e) => {setUsername(e.target.value)}}

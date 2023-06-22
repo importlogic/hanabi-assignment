@@ -1,6 +1,6 @@
 const ErrorAlert = (props) => {
     return (
-        <div className='alert alert-error absolute bottom-4 right-4 w-96 bg-red-500 text-white'>
+        <div className='alert alert-error absolute bottom-4 w-80 md:right-4 md:w-96 bg-red-500 text-white'>
             <svg
                 xmlns='http://www.w3.org/2000/svg'
                 className='h-6 w-6 shrink-0 stroke-current'

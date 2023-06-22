@@ -52,31 +52,69 @@ const Form = () => {
         }
     }, []);
 
+    const isFormValid = () => {
+        if(email.trim().length > 0){
+            const emailParts = email.trim().split('@');
+
+            if(emailParts.length != 2 || emailParts[0].length < 1 || emailParts[1].length < 1){
+                setErrorMessage('Please enter a valid email address');
+
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 5000);
+
+                return false;
+            }
+        }
+
+        if(number != null){
+            let start = 0;
+            while(number[start] == '0')
+                ++start;
+
+            const phoneNumber = number.substring(start);
+
+            if(phoneNumber.length != 10){
+                setErrorMessage('Please enter a valid phone number');
+
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 5000);
+
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     const submitHandler = async (e) => {
         e.preventDefault();
 
-        setIsLoading(true);
+        if(isFormValid()){
+            setIsLoading(true);
 
-        const response = await setUser({
-            username: searchParams.get('username'),
-            name,
-            email,
-            number,
-            dob
-        });
+            const response = await setUser({
+                username: searchParams.get('username'),
+                name: name.trim(),
+                email: email.trim(),
+                number,
+                dob
+            });
 
-        if (response.status === 'failed') {
-            setErrorMessage('Something went wrong. Please try again later');
+            if (response.status === 'failed') {
+                setErrorMessage('Something went wrong. Please try again later');
 
-            setTimeout(() => {
-                setErrorMessage('');
-            }, 5000);
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 5000);
+            }
+            else{
+                navigate('/result');
+            }
+
+            setIsLoading(false);
         }
-        else{
-            navigate('/result');
-        }
-
-        setIsLoading(false);
     };
 
     return (
