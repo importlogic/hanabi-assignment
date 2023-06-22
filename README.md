@@ -55,8 +55,11 @@ The backend is made with NestJS and supports two routes : `/get-user` `/set-user
         <th>
             Body
         </th>
+        <th>
+            Returns
+        </th>
     </tr>
-        <tr>
+    <tr>
         <td>
             /get-user
         </td>
@@ -66,8 +69,11 @@ The backend is made with NestJS and supports two routes : `/get-user` `/set-user
         <td>
             username: string
         </td>
+        <td>
+            Status success or failed and user details if the operation was successfull
+        </td>
     </tr>
-        <tr>
+    <tr>
         <td>
             /set-user
         </td>
@@ -81,7 +87,11 @@ The backend is made with NestJS and supports two routes : `/get-user` `/set-user
             number: Int64 <br>
             dob: string <br>
         </td>
+        <td>
+            Status success or failed.
+        </td>
     </tr>
+    
 </table>
 
 ## Getting Started
