@@ -67,7 +67,7 @@ const Form = () => {
             }
         }
 
-        if(number != null){
+        if(number.length > 0){
             let start = 0;
             while(number[start] == '0')
                 ++start;
