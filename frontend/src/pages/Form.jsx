@@ -34,7 +34,7 @@ const Form = () => {
             } else if (response.data != null) {
                 setName(response.data.name);
                 setEmail(response.data.email);
-                response.data.number == null ? setNumber('') : setNumber(String(response.data.number));  
+                setNumber(response.data.number);  
                 setDob(response.data.dob);
             }
 

@@ -12,7 +12,7 @@ export class User {
   @Prop()
   email: string;
   @Prop()
-  number: number;
+  number: string;
   @Prop()
   dob: string;
 }
